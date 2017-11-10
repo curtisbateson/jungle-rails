@@ -23,6 +23,13 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <h4 style="margin-left:90px;">Reviews</h4>
+        <dl class="dl-horizontal">
+          <% @reviews.each do |review| %>
+            <dt><%= review.user_id.to_s %></dt>
+            <dd><%= "Rating: ".concat(review.rating.to_s).concat("/5 ").concat(review.description) %></dd>
+          <% end %>
+        </dl>
       </div>
     </div>
 
