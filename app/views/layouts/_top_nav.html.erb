@@ -27,9 +27,13 @@
         </li>
       </ul>
       <% if current_user %>
-        Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><p>User: <%= current_user.email %></p></li><li><%= link_to "Logout", '/logout' %></li>
+        </ul>
       <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Register', '/users/new' %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="navbar navbar-nav navbar-right"><%= link_to 'Login', '/login' %></li><li><%= link_to 'Register', '/users/new' %></li>
+        </ul>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
        <li class="dropdown">
