@@ -24,6 +24,13 @@
           <dd><%= @product.price %></dd>
         </dl>
         <h4 style="margin-left:90px;">Reviews</h4>
+        <%= form_for [@product, @new_review] do |form| %>
+          <%= form.label :description %>:
+          <%= form.text_area :description %>
+          <%= form.label :rating %>:
+          <%= form.number_field :rating %>
+          <%= form.submit %>
+        <% end %>
         <dl class="dl-horizontal">
           <% @reviews.each do |review| %>
             <dt><%= review.user_id.to_s %></dt>

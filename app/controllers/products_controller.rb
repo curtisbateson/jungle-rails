@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
+    @new_review = Review.new
     @reviews = Review.all.where("product_id = #{params[:id]}")
   end
 
