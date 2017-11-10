@@ -1,5 +1,6 @@
-<html>
-<body>
-<p>a thing</p>
-</body>
-</html>
+<h2>Thanks for shopping at Jungle! Order #<%= @order.id %></h2><br/>
+<% @order.line_items.each do |item| %>
+  <% product = Product.find(item.product_id) %>
+  <p><%= product.name %> x <%= item.quantity %> = <%= number_to_currency item.total_price_cents / 100 %></p>
+<% end %>
+<h3 id="total">Grand Total: <%= number_to_currency @order.total_cents / 100 %></h3>

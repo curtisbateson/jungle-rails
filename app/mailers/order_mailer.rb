@@ -1,7 +1,8 @@
 class OrderMailer < ApplicationMailer
   default from: "no-reply@jungle.com"
   
-  def order_email(email, order_id)
-    mail(to: email, subject: "Thanks from Jungle! Order #: ".concat(order_id))
+  def order_email(order)
+    @order = order
+    mail(to: @order.email, subject: "Jungle - Receipt for order #".concat(@order.id.to_s))
   end
 end

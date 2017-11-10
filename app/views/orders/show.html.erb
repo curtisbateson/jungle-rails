@@ -19,7 +19,7 @@
       <%= render 'line_item', item: item %>
     <% end %>
     </table>
-    <h3 id="total">Grand Total: <%= humanized_money_with_symbol @order.total_cents %></h3>
+    <h3 id="total">Grand Total: <%= number_to_currency @order.total_cents / 100 %></h3>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
