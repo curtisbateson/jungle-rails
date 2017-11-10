@@ -76,6 +76,16 @@ main section.categories-show {
   }
 }
 
+.table {
+  img {
+    width: 100px;
+  }
+}
+
+#total {
+  text-align: right;
+}
+
 li > p {
   color: #777;
   padding-top: 15px;
