@@ -24,17 +24,31 @@
           <dd><%= @product.price %></dd>
         </dl>
         <h4 style="margin-left:90px;">Reviews</h4>
-        <%= form_for [@product, @new_review] do |form| %>
-          <%= form.label :description %>:
-          <%= form.text_area :description %>
-          <%= form.label :rating %>:
-          <%= form.number_field :rating %>
-          <%= form.submit %>
+        <% flash.each do |key, value| %>
+          <h5 style="color:red;margin-left:90px;"><%= value %></h5>
         <% end %>
         <dl class="dl-horizontal">
+          <% if current_user %>
+            <dt>What do you think?</dt>
+            <dd><%= form_for [@product, @new_review] do |form| %>
+              <%= form.text_area :description %></dd>
+              <dd><%= form.label :rating %>:
+              <%= select("review", "rating", [1,2,3,4,5], {include_blank: true}) %>
+              <%= form.submit %>
+            <% end %></dd>
+            <br/>
+          <% end %>
           <% @reviews.each do |review| %>
-            <dt><%= review.user_id.to_s %></dt>
-            <dd><%= "Rating: ".concat(review.rating.to_s).concat("/5 ").concat(review.description) %></dd>
+            <% user = User.find review.user_id %>
+            <dt><%= user.first_name.concat(" ").concat(user.last_name) %></dt>
+            <dd><%= review.created_at.strftime('%a %d %b %Y %I:%M:%S %p') %></dd>
+            <dt><%= "Rating: ".concat(review.rating.to_s).concat("/5") %></dt>
+            <dd><%= review.description %></dd>
+            <% if current_user && current_user.id == review.user_id %>
+              <dd><%= link_to 'Delete', product_review_path(@product, review),
+              data: {:confirm => 'Are you sure?'}, :method => :delete %></dd>
+            <% end %>
+            <br/>
           <% end %>
         </dl>
       </div>

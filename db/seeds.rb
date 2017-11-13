@@ -134,6 +134,15 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+User.destroy_all
+
+User.create!({
+  first_name: "John",
+  last_name: "Smith",
+  email: "john@smith.com",
+  password_digest: "thing"
+})
+
 prod1 = Product.find_by name: 'Red Bookshelf'
 
 prod1.reviews.create!({
@@ -145,14 +154,14 @@ prod1.reviews.create!({
 
 prod1.reviews.create!({
   product_id: prod1.id,
-  user_id: 2,
+  user_id: 1,
   description: Faker::Hipster.paragraph(2),
   rating: 4
 })
 
 prod1.reviews.create!({
   product_id: prod1.id,
-  user_id: 3,
+  user_id: 1,
   description: Faker::Hipster.paragraph(2),
   rating: 1
 })
