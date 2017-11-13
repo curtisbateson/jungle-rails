@@ -14,6 +14,8 @@ Product Details:
 
 !["Product Details"](https://github.com/curtisbateson/jungle-rails/raw/master/app/assets/images/Product%20Details.png)
 
+Order Confirmation:
+
 !["Order Confirmation"](https://github.com/curtisbateson/jungle-rails/raw/master/app/assets/images/Order%20Confirmation.png)
 
 ## Setup
