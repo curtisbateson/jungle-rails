@@ -4,6 +4,17 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 Now updated with new features and bug fixes by Curtis Bateson.
 
+## Screenshots
+
+Main Page:
+
+!["Main Page"](https://github.com/curtisbateson/jungle-rails/raw/master/app/assets/images/Main%20Page.png)
+
+Product Details:
+
+!["Product Details"](https://github.com/curtisbateson/jungle-rails/raw/master/app/assets/images/Product%20Details.png)
+
+!["Order Confirmation"](https://github.com/curtisbateson/jungle-rails/raw/master/app/assets/images/Order%20Confirmation.png)
 
 ## Setup
 
