@@ -5,7 +5,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    p params.inspect
     @product = Product.find params[:id]
+    @new_review = Review.new
+    @reviews = Review.all.where("product_id = #{params[:id]}").order(created_at: :desc)
   end
 
 end
